@@ -1,6 +1,5 @@
-
 body{
-    background:#7aacb3;
+    background-image: linear-gradient(135deg,#294d61,#6da5c0,#0f969c,#0c7075,#072e33,#05161a);
     font-family: 'Raleway', sans-serif;
 
 
@@ -14,65 +13,59 @@ h1 {
     margin-top: 100px;
     margin-bottom: 100px;
     text-align: center;
-    font-size: 60px;
-    color:white;
-    background: #e8b7d4;
-    opacity: 0.8;
+    font-size: 80px;
+    color:#fffafc;
+    background:none;
 }
-section{
-    margin:10px;
-    padding: 0px;
 
-
-}
 section, who{
-    margin:0px;
+    margin: 0px;;
     padding: 0px;
+    
 
 }
 h2{
     margin: 0px;
-    padding: 100px 0px 10px 0px;
-    font-size: 50px;
+    padding: 0px 0px 10px 0px;
+    font-size: 40px;
     font-style: italic;
 
 }
 p {
     margin:0px;
     padding: 10px 0px 10px 0px;
-    font-size: 20px;
-    color: white;
+    font-size: 15px;
+    color:#fffafc;
     font-style: italic;
-    font-weight: bold;
     
 }
 #social{
     padding: 10px ;
     height: 50px;
-    width: 360px;
+    width: auto;
     margin: 10px 10px 0px 10px ;
     
 
 }
 #dato{
-    background-color:#e8b7d4;
-    opacity: 0.8;
+   
     list-style-type: none;
+    padding: 40px 0px 10px 0px;
     padding: 10px;
-    height: 100px;
+    height: auto;
     width: 360px;
     margin: 10px;
 }
 #lenguas{
-    padding: 10px ;
-    height: 50px;
+    padding: 40px 0px 10px 0px;
+    height: auto;
     width: 360px;
     margin: 10px 10px 0px 10px ;
     
 
 }
 #idioma{
-    background-color:  #e8b7d4;
+   
     opacity: 0.8;
     list-style-type: none;
     padding: 10px;
@@ -85,41 +78,41 @@ p {
 }
 .icon i{
     background:none;
-    color:#aa5377;
+    color:#fffafc;
     font-size: 20px;
     padding: 5px;
  }
  .icon1 i{
     background:none;
-    color:rgb(235, 4, 4);
+    color:#fffafc;
     font-size: 20px;
     font-weight: bold;
     padding: 5px;
  }
  .icon2 i{
     background:none;
-    color:#ebe9e9;
+    color:#fffafc;
     font-size: 20px;
     padding: 5px;
  }
  .icon3 i{
     background:none;
-    color:#2230b1;
+    color:#fffafc;
     font-size: 20px;
     padding: 5px;
  }
 #experiencia{
-    padding: 10px 0px 10px 0px;
+    padding: 40px 0px 10px 0px;
     margin: 10px 0px 0px 10px;
 
 }
 #educa{
-    background-color: #e8b7d4;
-    opacity: 0.8;
+
     list-style-type:square;
     padding: 10px 10px 0px 20px;
     margin: 10px 0px 0px 10px;
     font-size: 15px;
+    color: #fffafc;
 
 }
 button {
