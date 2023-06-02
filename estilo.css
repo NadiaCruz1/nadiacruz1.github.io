@@ -1,3 +1,4 @@
+
 body{
     background-image: linear-gradient(135deg,#294d61,#6da5c0,#0f969c,#0c7075,#072e33,#05161a);
     font-family: 'Raleway', sans-serif;
@@ -11,26 +12,25 @@ h1 {
     padding:10px 10px 10px 10px;
     margin: 0px;
     margin-top: 100px;
-    margin-bottom: 100px;
+    margin-bottom: 10px;
     text-align: center;
     font-size: 80px;
     color:#fffafc;
     background:none;
 }
 
-section, who{
-    margin: 0px;;
-    padding: 0px;
-    
 
-}
 h2{
+     padding:10px 10px 10px 10px;
     margin: 0px;
-    padding: 0px 0px 10px 0px;
-    font-size: 40px;
-    font-style: italic;
-
+    margin-top: 0px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 15px;
+    color:#fffafc;
+    background:none;
 }
+
 p {
     margin:0px;
     padding: 10px 0px 10px 0px;
@@ -44,6 +44,7 @@ p {
     height: 50px;
     width: auto;
     margin: 10px 10px 0px 10px ;
+    color: #05161a;
     
 
 }
@@ -55,27 +56,11 @@ p {
     height: auto;
     width: 360px;
     margin: 10px;
+    color: #fffafc;
 }
-#lenguas{
-    padding: 40px 0px 10px 0px;
-    height: auto;
-    width: 360px;
-    margin: 10px 10px 0px 10px ;
+
     
 
-}
-#idioma{
-   
-    opacity: 0.8;
-    list-style-type: none;
-    padding: 10px;
-    height: 100px;
-    width: 360px;
-    margin: 10px;
-    font-weight: bold;
-    
-    
-}
 .icon i{
     background:none;
     color:#fffafc;
@@ -101,22 +86,10 @@ p {
     font-size: 20px;
     padding: 5px;
  }
-#experiencia{
-    padding: 40px 0px 10px 0px;
-    margin: 10px 0px 0px 10px;
 
-}
-#educa{
-
-    list-style-type:square;
-    padding: 10px 10px 0px 20px;
-    margin: 10px 0px 0px 10px;
-    font-size: 15px;
-    color: #fffafc;
-
-}
 button {
  background: none;
  border: none;
 
  }
+
