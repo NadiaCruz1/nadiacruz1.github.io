@@ -1,99 +1,1243 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <title>CV-NadiaCruz</title>
-  <link rel="icon" type="image/x-icon" href="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/256/external-cv-human-resources-flaticons-lineal-color-flat-icons-2.png">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link href="estilo.css" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Final Física 1 - Principio de Bernoulli</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .header h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .authors {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .authors h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .authors p {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .intro-section {
+            background: linear-gradient(135deg, #e8f4fd, #d1ecf1);
+            border-left: 5px solid #3498db;
+            padding: 30px;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .intro-section .emoji {
+            font-size: 4rem;
+        }
+
+        .intro-section .text h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .intro-section .text p {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .objectives-section {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+
+        .objectives-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .objective-card {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .objective-card .emoji {
+            font-size: 2rem;
+        }
+
+        .fluids-section {
+            margin-bottom: 40px;
+        }
+
+        .fluids-section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .fluids-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .fluid-card {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .fluid-card .emoji {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .fluid-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .properties-section {
+            margin-bottom: 40px;
+        }
+
+        .properties-section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .property-card {
+            border: 2px solid #d1ecf1;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .property-card:hover {
+            border-color: #3498db;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.1);
+        }
+
+        .property-header {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .property-header h3 {
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .property-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            background: #e8f4fd;
+        }
+
+        .property-content.active {
+            max-height: 500px;
+        }
+
+        .property-content .content-inner {
+            padding: 20px;
+        }
+
+        .equation-section {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .equation-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .bernoulli-equation {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .bernoulli-equation:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .relationship-section {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+
+        .relationship-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .relationship-card {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .tube-diagram {
+            background: white;
+            color: #333;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .continuity-section {
+            background: linear-gradient(135deg, #16a085, #1abc9c);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+
+        .problem-section {
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+
+        .solution-section {
+            margin-bottom: 30px;
+            border: 2px solid #d4edda;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .solution-section:hover {
+            border-color: #3498db;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.1);
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .section-header:hover {
+            background: linear-gradient(135deg, #2980b9, #1f5f8b);
+        }
+
+        .section-header h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .toggle-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .section-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            background: #f0f8ff;
+        }
+
+        .section-content.active {
+            max-height: 2000px;
+        }
+
+        .section-content .content-inner {
+            padding: 30px;
+        }
+
+        .math-step {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #e74c3c;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .math-step h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .math-step p {
+            color: #555;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .equation {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            text-align: center;
+            border: 1px solid #ffeaa7;
+        }
+
+        .result-box {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .result-box h4 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .interpretation {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .interpretation h4 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .interpretation ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .interpretation li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .interpretation li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .applications {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .applications h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .applications ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .applications li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .applications li:before {
+            content: "⚙️";
+            position: absolute;
+            left: 0;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .objectives-grid,
+            .fluids-grid,
+            .properties-grid,
+            .relationship-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <div class="header">
+            <h1>Proyecto Final Física 1</h1>
+            <h2>Principio de Bernoulli</h2>
+            <div class="authors">
+                <h3>Presentado por:</h3>
+                <p><strong>Camila González • Nadia Cruz</strong></p>
+                <p>Grupo 11 – Resilientes 2025</p>
+                <p>03 de julio de 2025</p>
+            </div>
+            <div style="font-size: 4rem; margin-top: 20px;">🌊</div>
+        </div>
 
-<header>
-  <h1>Nadia Cruz</h1>
-  <h3>Estudiante de Tecnicatura Universitaria en Programación</h3>
-</header>
+        <div class="content">
+            <!-- Introducción -->
+            <div class="intro-section">
+                <div class="emoji">✈️</div>
+                <div class="text">
+                    <h2>Introducción</h2>
+                    <p>El principio de Bernoulli es uno de los fundamentos más importantes en la mecánica de fluidos. Establece la relación entre la presión, velocidad y altura en un fluido en movimiento, siendo esencial para comprender fenómenos como el vuelo de los aviones y el funcionamiento de diversos dispositivos hidráulicos.</p>
+                </div>
+            </div>
 
-<main>
-  <article>
-    <fieldset>
-      <legend>¿QUIÉN SOY?</legend>
-      <p>Estudiante de programación apasionado y motivado, con sólidos conocimientos en diversos lenguajes de programación y experiencia en proyectos prácticos.
-        Capaz de trabajar en equipo y resolver problemas de manera eficiente.
-        Busco oportunidades para seguir desarrollando mis habilidades y contribuir al mundo de la tecnología.</p>
-    </fieldset>
+            <!-- Objetivos -->
+            <div class="objectives-section">
+                <h2>🎯 Objetivos</h2>
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                    <h3>Objetivo General</h3>
+                    <p>Analizar y comprender el principio de Bernoulli y sus aplicaciones en la mecánica de fluidos.</p>
+                </div>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <div class="emoji">💧</div>
+                        <div>Definir fluido ideal</div>
+                    </div>
+                    <div class="objective-card">
+                        <div class="emoji">📐</div>
+                        <div>Ecuación de Bernoulli</div>
+                    </div>
+                    <div class="objective-card">
+                        <div class="emoji">⚖️</div>
+                        <div>Relación presión-velocidad-altura</div>
+                    </div>
+                    <div class="objective-card">
+                        <div class="emoji">🔧</div>
+                        <div>Aplicaciones prácticas</div>
+                    </div>
+                    <div class="objective-card">
+                        <div class="emoji">⚠️</div>
+                        <div>Limitaciones del principio</div>
+                    </div>
+                </div>
+            </div>
 
-    <fieldset>
-      <legend>EDUCACION/EXPERIENCIA</legend>
-      <ul>
-        <li>2013-2017&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bachiller en música con especialización en vivo</li>
-        <br>
-        <li>2022-2023&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Programación Frontend, Ticmas</li>
-        <br>
-        <li>2022-2022&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Full Stack, Codo a Codo 4.0</li>
-        <br>
-        <li>2022-..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tecnicatura Universitaria en Programación, FRSR-UTN</li>
-        <br>
-      </ul>
-    </fieldset>
+            <!-- ¿Qué es un Fluido? -->
+            <div class="fluids-section">
+                <h2>¿Qué es un Fluido?</h2>
+                <p style="text-align: center; margin-bottom: 30px; color: #555; font-size: 1.1rem;">Un fluido es una sustancia que se deforma continuamente bajo la aplicación de una fuerza tangencial, sin importar cuán pequeña sea esta fuerza. Los fluidos incluyen tanto líquidos como gases.</p>
+                <div class="fluids-grid">
+                    <div class="fluid-card">
+                        <div class="emoji">💧</div>
+                        <h3>Líquidos</h3>
+                        <p>Volumen definido</p>
+                    </div>
+                    <div class="fluid-card">
+                        <div class="emoji">💨</div>
+                        <h3>Gases</h3>
+                        <p>Volumen variable</p>
+                    </div>
+                </div>
+            </div>
 
-    <fieldset>
-      <legend>COMPETENCIAS</legend>
-      <ul>
-        <p>
-          <li>Responsabilidad<br></li>
-          <li>Trabajo en Equipo<br></li>
-          <li> Gestion eficaz del tiempo<br></li>
-          <li>Servicio al cliente<br></li>
-          <li> Adaptabilidad</li>
-          
-        </p>
-      </ul>
-    </fieldset>
+            <!-- Propiedades de los Fluidos -->
+            <div class="properties-section">
+                <h2>Propiedades de los Fluidos</h2>
+                <div class="properties-grid">
+                    <div class="property-card">
+                        <div class="property-header">
+                            <h3>⚖️ Densidad (ρ)</h3>
+                        </div>
+                        <div class="property-content active">
+                            <div class="content-inner">
+                                <p>La densidad es la cantidad de masa contenida en una unidad de volumen de una sustancia.</p>
+                                <div class="equation">$$\rho = \frac{m}{V}$$</div>
+                                <p><strong>Ejemplos:</strong></p>
+                                <ul>
+                                    <li>• Agua: 1000 kg/m³</li>
+                                    <li>• Aire: 1.2 kg/m³</li>
+                                    <li>• Mercurio: 13,600 kg/m³</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
-    <fieldset>
-      <legend>HABILIDADES TECNICAS</legend>
-      <ul>
-        <p>
-          Lenguajes de programación: Python, Java, JavaScript.<br>
-          Desarrollo web: HTML, CSS, JavaScript.<br>
-          Metodologías ágiles: Scrum.
-        </p>
-      </ul>
-    </fieldset>
-  </article>
+                    <div class="property-card">
+                        <div class="property-header">
+                            <h3>🌀 Viscosidad (μ)</h3>
+                        </div>
+                        <div class="property-content active">
+                            <div class="content-inner">
+                                <p>La viscosidad es la resistencia interna de un fluido al movimiento. Representa la fricción entre las capas del fluido.</p>
+                                <div class="equation">$$\tau = \mu \frac{du}{dy}$$</div>
+                                <p><strong>Ejemplos:</strong></p>
+                                <ul>
+                                    <li>• Agua: 0.001 Pa·s</li>
+                                    <li>• Miel: 10 Pa·s</li>
+                                    <li>• Aire: 0.000018 Pa·s</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
-  <aside>
-    <fieldset>
-      <legend>CONTACTAME</legend>
-      <ul>
-        <li class="icon1"><i class="fa-brands fa-github"></i> <button onclick="GitHub()"><a style="text-decoration:none;color: #232cb1;">&nbsp;&nbsp;github.com/NadiaCruz1</a></button></li>
-        <li class="icon2"><i class="fa-regular fa-envelope"></i> <button onclick="mail()"><a style="text-decoration:none;color: #232cb1;">&nbsp;&nbsp;nadiacruz563@gmail.com</a></button></li>
-        <li class="icon3"><i class="fa-solid fa-phone"></i> <button onclick="phone()"><a style="text-decoration:none;color:#232cb1;">&nbsp; +2604053868</a></button></li>
-        <li class="icon3"><i class="fa-brands fa-linkedin"></i> <button onclick="Linkedin()"><a style="text-decoration:none;color:#232cb1;">&nbsp;&nbsp;linkedin/nadia-florencia-cruz</a></button></li>
-      </ul>
-      <br>
-      <br>
+                    <div class="property-card">
+                        <div class="property-header">
+                            <h3>📊 Presión (P)</h3>
+                        </div>
+                        <div class="property-content active">
+                            <div class="content-inner">
+                                <p>La presión es la fuerza normal ejercida por unidad de área sobre una superficie.</p>
+                                <div class="equation">$$P = \frac{F}{A}$$</div>
+                                <p><strong>Unidades:</strong></p>
+                                <ul>
+                                    <li>• Pascal (Pa) = N/m²</li>
+                                    <li>• Atmósfera (atm) = 101,325 Pa</li>
+                                    <li>• Bar = 100,000 Pa</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
-      <img src="imagen.jpg" alt="QR WhatsApp" width="<i class="fas fa-autoprefixer"></i>
-    </fieldset>
+                    <div class="property-card">
+                        <div class="property-header">
+                            <h3>🏃 Velocidad (v)</h3>
+                        </div>
+                        <div class="property-content active">
+                            <div class="content-inner">
+                                <p>La velocidad del fluido es la rapidez y dirección del movimiento de las partículas del fluido.</p>
+                                <div class="equation">$$v = \frac{ds}{dt}$$</div>
+                                <p><strong>Características:</strong></p>
+                                <ul>
+                                    <li>• Magnitud vectorial</li>
+                                    <li>• Varía con la posición</li>
+                                    <li>• Relacionada con el caudal</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Ecuación de Bernoulli -->
+            <div class="equation-section">
+                <h2>Ecuación de Bernoulli</h2>
+                <div class="bernoulli-equation" onclick="toggleBernoulli()">
+                    $$P + \frac{1}{2}\rho v^2 + \rho gh = \text{constante}$$
+                </div>
+                <p style="margin-top: 15px;">Haz clic en la ecuación para ver la explicación de cada término</p>
+                <div id="bernoulli-explanation" style="display: none; margin-top: 20px; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+                    <h3>Términos de la Ecuación:</h3>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li><strong>P:</strong> Presión estática del fluido</li>
+                        <li><strong>½ρv²:</strong> Presión dinámica (energía cinética por unidad de volumen)</li>
+                        <li><strong>ρgh:</strong> Presión hidrostática (energía potencial por unidad de volumen)</li>
+                    </ul>
+                </div>
+            </div>
 
-  </aside>
-</main>
+            <!-- Relación entre Presión, Velocidad y Altura -->
+            <div class="relationship-section">
+                <h2>✈️ Relación entre Presión, Velocidad y Altura</h2>
+                <div class="relationship-grid">
+                    <div class="relationship-card">
+                        <h3>🔗 Interdependencia Fundamental</h3>
+                        <p>En un flujo continuo, estas tres magnitudes están íntimamente relacionadas. Un aumento en la velocidad del fluido provoca una disminución en su presión o altura, dependiendo del sistema.</p>
+                        <p>Esta interdependencia permite el diseño y análisis de dispositivos como toberas, difusores y medidores de flujo.</p>
+                    </div>
+                    <div class="relationship-card">
+                        <h3>⚖️ Relaciones Básicas</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li>↑ Velocidad → ↓ Presión</li>
+                            <li>↑ Altura → ↓ Presión</li>
+                            <li>↓ Área → ↑ Velocidad</li>
+                        </ul>
+                    </div>
+                </div>
 
-<script src="func.js"></script>
+                <div class="tube-diagram">
+                    <h3>Tubo con Estrechamiento - Vista Conceptual</h3>
+                    <div style="background: white; padding: 20px; border-radius: 15px; border: 2px solid #ddd; margin: 20px 0;">
+                        <svg width="100%" height="180" viewBox="0 0 600 180" style="border-radius: 10px;">
+                            <!-- Definir gradientes -->
+                            <defs>
+                                <linearGradient id="section1" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#3498db"/>
+                                    <stop offset="100%" style="stop-color:#2980b9"/>
+                                </linearGradient>
+                                <linearGradient id="section2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#e74c3c"/>
+                                    <stop offset="100%" style="stop-color:#c0392b"/>
+                                </linearGradient>
+                                <linearGradient id="section3" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#27ae60"/>
+                                    <stop offset="100%" style="stop-color:#2ecc71"/>
+                                </linearGradient>
+                            </defs>
+                            
+                            <!-- Tubo completo con forma suave -->
+                            <path d="M 20 40 L 150 40 Q 180 40 200 60 L 350 60 Q 370 60 400 40 L 580 40 L 580 140 L 400 140 Q 370 140 350 120 L 200 120 Q 180 140 150 140 L 20 140 Z" 
+                                  fill="url(#section1)" stroke="#2c3e50" stroke-width="2"/>
+                            
+                            <!-- Sección estrecha -->
+                            <rect x="200" y="60" width="150" height="60" fill="url(#section2)" stroke="#2c3e50" stroke-width="2"/>
+                            
+                            <!-- Sección final -->
+                            <path d="M 400 40 L 580 40 L 580 140 L 400 140 Q 370 140 350 120 L 350 60 Q 370 40 400 40 Z" 
+                                  fill="url(#section3)" stroke="#2c3e50" stroke-width="2"/>
+                            
+                            <!-- Líneas de flujo -->
+                            <line x1="30" y1="70" x2="570" y2="70" stroke="#34495e" stroke-width="2" stroke-dasharray="8,4" opacity="0.6"/>
+                            <line x1="30" y1="90" x2="570" y2="90" stroke="#34495e" stroke-width="2" stroke-dasharray="8,4" opacity="0.6"/>
+                            <line x1="30" y1="110" x2="570" y2="110" stroke="#34495e" stroke-width="2" stroke-dasharray="8,4" opacity="0.6"/>
+                            
+                            <!-- Flechas de velocidad -->
+                            <polygon points="80,85 100,90 100,87 120,87 120,93 100,93 100,90" fill="#ffffff" stroke="#2c3e50"/>
+                            <polygon points="250,85 270,90 270,87 290,87 290,93 270,93 270,90" fill="#ffffff" stroke="#2c3e50"/>
+                            <polygon points="450,85 470,90 470,87 490,87 490,93 470,93 470,90" fill="#ffffff" stroke="#2c3e50"/>
+                            
+                            <!-- Etiquetas de texto -->
+                            <text x="85" y="25" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">A₁ = 1.0 m²</text>
+                            <text x="85" y="160" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">v₁ = 2 m/s</text>
+                            
+                            <text x="275" y="25" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">A₂ = 0.5 m²</text>
+                            <text x="275" y="160" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">v₂ = 4 m/s</text>
+                            
+                            <text x="490" y="25" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">A₃ = 1.0 m²</text>
+                            <text x="490" y="160" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">v₃ = 2 m/s</text>
+                        </svg>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; text-align: center;">
+                        <div style="background: rgba(52, 152, 219, 0.1); padding: 15px; border-radius: 10px;">
+                            <h4 style="color: #3498db; margin-bottom: 10px;">Sección 1</h4>
+                            <p><strong>Área:</strong> Grande</p>
+                            <p><strong>Velocidad:</strong> Baja</p>
+                            <p><strong>Presión:</strong> Alta</p>
+                        </div>
+                        <div style="background: rgba(231, 76, 60, 0.1); padding: 15px; border-radius: 10px;">
+                            <h4 style="color: #e74c3c; margin-bottom: 10px;">Sección 2</h4>
+                            <p><strong>Área:</strong> Pequeña</p>
+                            <p><strong>Velocidad:</strong> Alta</p>
+                            <p><strong>Presión:</strong> Baja</p>
+                        </div>
+                        <div style="background: rgba(39, 174, 96, 0.1); padding: 15px; border-radius: 10px;">
+                            <h4 style="color: #27ae60; margin-bottom: 10px;">Sección 3</h4>
+                            <p><strong>Área:</strong> Grande</p>
+                            <p><strong>Velocidad:</strong> Baja</p>
+                            <p><strong>Presión:</strong> Alta</p>
+                        </div>
+                    </div>
+                </div>
 
-<footer>
-  
-</footer>
+                <div class="relationship-card">
+                    <h3>📋 Ejemplo Práctico</h3>
+                    <p>En un tubo horizontal donde la altura h es constante, si el área de sección transversal disminuye, la velocidad aumenta y, en consecuencia, la presión debe disminuir para conservar la energía total.</p>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 15px; text-align: center;">
+                        <div>
+                            <strong>Altura</strong><br>
+                            h = constante
+                        </div>
+                        <div>
+                            <strong>Área</strong><br>
+                            A ↓
+                        </div>
+                        <div>
+                            <strong>Resultado</strong><br>
+                            v ↑, P ↓
+                        </div>
+                    </div>
+                </div>
 
-</body>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 30px;">
+                    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; text-align: center;">
+                        <div style="font-size: 2rem;">🌪️</div>
+                        <h4>Toberas</h4>
+                        <p>Acelerar fluidos</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; text-align: center;">
+                        <div style="font-size: 2rem;">📏</div>
+                        <h4>Difusores</h4>
+                        <p>Desacelerar fluidos</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; text-align: center;">
+                        <div style="font-size: 2rem;">📊</div>
+                        <h4>Medidores</h4>
+                        <p>Medir caudal</p>
+                    </div>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-top: 20px;">
+                    <h3>🔍 Principio de Conservación</h3>
+                    <p>La suma de estas tres energías permanece constante a lo largo de una línea de corriente en un fluido ideal.</p>
+                </div>
+            </div>
+
+            <!-- Principio de Continuidad -->
+            <div class="continuity-section">
+                <h2>Principio de Continuidad</h2>
+                <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 10px; margin-bottom: 20px;">
+                    <h3>🔬 Conservación de la Masa</h3>
+                    <p>El Principio de Continuidad surge de la conservación de la masa en un sistema fluido. Este principio indica que, en un conducto cerrado sin pérdidas de masa, el caudal (volumen por unidad de tiempo) debe mantenerse constante.</p>
+                    <p>Por lo tanto, si el área disminuye, la velocidad del fluido debe aumentar proporcionalmente.</p>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; text-align: center; cursor: pointer;" onclick="toggleContinuity()">
+                    <div style="font-size: 1.5rem; margin-bottom: 10px;">$$A_1v_1 = A_2v_2$$</div>
+                    <p>Haz clic en la ecuación para ver la explicación de cada término</p>
+                </div>
+
+                <div id="continuity-explanation" style="display: none; margin-top: 20px; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+                    <h3>Términos de la Ecuación:</h3>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li><strong>A₁, A₂:</strong> Áreas de sección transversal en los puntos 1 y 2</li>
+                        <li><strong>v₁, v₂:</strong> Velocidades del fluido en los puntos 1 y 2</li>
+                        <li><strong>Producto Av:</strong> Caudal volumétrico (Q = Av)</li>
+                    </ul>
+                </div>
+
+                <div style="background: white; color: #333; padding: 30px; border-radius: 15px; margin-top: 30px; text-align: center;">
+                    <h3>Principio de Continuidad - Conservación del Caudal</h3>
+                    
+                    <!-- Diagrama SVG mejorado -->
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 15px; border: 2px solid #dee2e6; margin: 20px 0;">
+                        <svg width="100%" height="200" viewBox="0 0 500 200">
+                            <!-- Definir gradientes -->
+                            <defs>
+                                <linearGradient id="wide1" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#3498db"/>
+                                    <stop offset="100%" style="stop-color:#2980b9"/>
+                                </linearGradient>
+                                <linearGradient id="narrow" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#e74c3c"/>
+                                    <stop offset="100%" style="stop-color:#c0392b"/>
+                                </linearGradient>
+                            </defs>
+                            
+                            <!-- Sección ancha -->
+                            <rect x="20" y="50" width="120" height="100" fill="url(#wide1)" stroke="#2c3e50" stroke-width="2" rx="10"/>
+                            
+                            <!-- Transición suave -->
+                            <path d="M 140 50 Q 160 50 180 75 L 180 125 Q 160 150 140 150 Z" fill="#f39c12" stroke="#2c3e50" stroke-width="2"/>
+                            
+                            <!-- Sección estrecha -->
+                            <rect x="180" y="75" width="140" height="50" fill="url(#narrow)" stroke="#2c3e50" stroke-width="2" rx="5"/>
+                            
+                            <!-- Transición de salida -->
+                            <path d="M 320 75 Q 340 75 360 50 L 360 150 Q 340 125 320 125 Z" fill="#f39c12" stroke="#2c3e50" stroke-width="2"/>
+                            
+                            <!-- Sección ancha final -->
+                            <rect x="360" y="50" width="120" height="100" fill="url(#wide1)" stroke="#2c3e50" stroke-width="2" rx="10"/>
+                            
+                            <!-- Partículas en sección ancha (espaciadas) -->
+                            <circle cx="50" cy="80" r="4" fill="#ffffff" stroke="#2c3e50" stroke-width="1"/>
+                            <circle cx="70" cy="110" r="4" fill="#ffffff" stroke="#2c3e50" stroke-width="1"/>
+                            <circle cx="90" cy="90" r="4" fill="#ffffff" stroke="#2c3e50" stroke-width="1"/>
+                            <circle cx="110" cy="120" r="4" fill="#ffffff" stroke="#2c3e50" stroke-width="1"/>
+                            
+                            <!-- Partículas en sección estrecha (comprimidas) -->
+                            <circle cx="200" cy="100" r="3" fill="#ffffff" stroke="#2c3e50" stroke-width="1"/>
+                            <circle cx="215" cy="100" r="3" fill="#ffffff" stroke="#2c3e50" stroke-width="1"/>
+                            <circle cx="230" cy="100" r="3" fill="#ffffff" stroke="#2c3e50" stroke-width="1"/>
+                            <circle cx="245" cy="100" r="3" fill="#ffffff" stroke="#2c3e50" stroke-width="1"/>
+                            <circle cx="260" cy="100" r="3" fill="#ffffff" stroke="#2c3e50" stroke-width="1"/>
+                            <circle cx="275" cy="100" r="3" fill="#ffffff" stroke="#2c3e50" stroke-width="1"/>
+                            <circle cx="290" cy="100" r="3" fill="#ffffff" stroke="#2c3e50" stroke-width="1"/>
+                            <circle cx="305" cy="100" r="3" fill="#ffffff" stroke="#2c3e50" stroke-width="1"/>
+                            
+                            <!-- Partículas en sección final (espaciadas) -->
+                            <circle cx="390" cy="80" r="4" fill="#ffffff" stroke="#2c3e50" stroke-width="1"/>
+                            <circle cx="410" cy="110" r="4" fill="#ffffff" stroke="#2c3e50" stroke-width="1"/>
+                            <circle cx="430" cy="90" r="4" fill="#ffffff" stroke="#2c3e50" stroke-width="1"/>
+                            <circle cx="450" cy="120" r="4" fill="#ffffff" stroke="#2c3e50" stroke-width="1"/>
+                            
+                            <!-- Flechas de velocidad -->
+                            <polygon points="80,30 100,35 100,32 120,32 120,38 100,38 100,35" fill="#2c3e50"/>
+                            <polygon points="230,30 250,35 250,32 270,32 270,38 250,38 250,35" fill="#2c3e50"/>
+                            <polygon points="420,30 440,35 440,32 460,32 460,38 440,38 440,35" fill="#2c3e50"/>
+                            
+                            <!-- Etiquetas -->
+                            <text x="80" y="20" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">v₁ = 2 m/s</text>
+                            <text x="250" y="20" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">v₂ = 4 m/s</text>
+                            <text x="420" y="20" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">v₃ = 2 m/s</text>
+                            
+                            <text x="80" y="175" text-anchor="middle" fill="#2c3e50" font-size="11" font-weight="bold">A₁ = 1.0 m²</text>
+                            <text x="250" y="175" text-anchor="middle" fill="#2c3e50" font-size="11" font-weight="bold">A₂ = 0.5 m²</text>
+                            <text x="420" y="175" text-anchor="middle" fill="#2c3e50" font-size="11" font-weight="bold">A₃ = 1.0 m²</text>
+                            
+                            <!-- Ecuaciones de caudal -->
+                            <text x="80" y="190" text-anchor="middle" fill="#3498db" font-size="10" font-weight="bold">Q₁ = 2.0 m³/s</text>
+                            <text x="250" y="190" text-anchor="middle" fill="#e74c3c" font-size="10" font-weight="bold">Q₂ = 2.0 m³/s</text>
+                            <text x="420" y="190" text-anchor="middle" fill="#3498db" font-size="10" font-weight="bold">Q₃ = 2.0 m³/s</text>
+                        </svg>
+                    </div>
+                    
+                    <div style="background: rgba(39, 174, 96, 0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                        <p style="font-size: 1.3rem; color: #27ae60; font-weight: bold; margin-bottom: 10px;">Q₁ = Q₂ (Conservación del Caudal)</p>
+                        <p style="color: #2c3e50; font-size: 1.1rem;">Las partículas se comprimen en la sección estrecha para mantener el mismo flujo volumétrico</p>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                        <div style="background: rgba(52, 152, 219, 0.1); padding: 15px; border-radius: 10px;">
+                            <h4 style="color: #3498db; margin-bottom: 10px;">Sección Ancha</h4>
+                            <p><strong>Área:</strong> 1.0 m² (mayor)</p>
+                            <p><strong>Velocidad:</strong> 2 m/s (menor)</p>
+                            <p><strong>Partículas:</strong> Más espaciadas</p>
+                        </div>
+                        <div style="background: rgba(231, 76, 60, 0.1); padding: 15px; border-radius: 10px;">
+                            <h4 style="color: #e74c3c; margin-bottom: 10px;">Sección Estrecha</h4>
+                            <p><strong>Área:</strong> 0.5 m² (menor)</p>
+                            <p><strong>Velocidad:</strong> 4 m/s (mayor)</p>
+                            <p><strong>Partículas:</strong> Más comprimidas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Problema de Flujo de Agua -->
+            <div class="problem-section">
+                <h2>🌊 Problema de Flujo de Agua</h2>
+                <p style="margin-bottom: 20px;">Conducto horizontal con estrechamiento y re-expansión</p>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 10px;">
+                    <h3>📋 Enunciado del Problema</h3>
+                    <p>Se tiene un conducto horizontal por el cual circula agua (densidad $\rho=1000\ \mathrm{kg/m^3}$) en régimen estacionario. El conducto presenta una sección ancha de $A_1=1{,}0\ \mathrm{m^2}$ que se estrecha a $A_2=0{,}5\ \mathrm{m^2}$ a lo largo de una distancia de 4 metros en su parte central, y luego vuelve a expandirse a $A_3=1{,}0\ \mathrm{m^2}$. El caudal volumétrico es $Q=2{,}0\ \mathrm{m^3/s}$.</p>
+                    
+                    <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-top: 20px;">
+                        <h4>🎯 Objetivos del problema:</h4>
+                        <ol style="text-align: left; margin-top: 10px; padding-left: 20px;">
+                            <li>Calcular la velocidad del agua en cada sección</li>
+                            <li>Calcular la diferencia de presión entre las secciones ancha y estrecha usando la ecuación de Bernoulli</li>
+                            <li>Interpretar el comportamiento del fluido con base en el Principio de Continuidad y el Principio de Bernoulli</li>
+                        </ol>
+                    </div>
+                    
+                    <!-- Diagrama específico del problema -->
+                    <div style="background: rgba(255,255,255,0.9); color: #333; padding: 25px; border-radius: 15px; margin-top: 25px;">
+                        <h4 style="text-align: center; margin-bottom: 20px; color: #2c3e50;">📐 Esquema del Problema</h4>
+                        
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 15px; border: 2px solid #dee2e6; margin: 20px 0;">
+                            <svg width="100%" height="160" viewBox="0 0 600 160">
+                                <!-- Definir gradientes -->
+                                <defs>
+                                    <linearGradient id="prob1" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#17a2b8"/>
+                                        <stop offset="100%" style="stop-color:#138496"/>
+                                    </linearGradient>
+                                    <linearGradient id="prob2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#dc3545"/>
+                                        <stop offset="100%" style="stop-color:#bd2130"/>
+                                    </linearGradient>
+                                    <linearGradient id="prob3" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#28a745"/>
+                                        <stop offset="100%" style="stop-color:#1e7e34"/>
+                                    </linearGradient>
+                                </defs>
+                                
+                                <!-- Sección 1 -->
+                                <rect x="20" y="40" width="100" height="80" fill="url(#prob1)" stroke="#2c3e50" stroke-width="2" rx="8"/>
+                                
+                                <!-- Transición 1 -->
+                                <path d="M 120 40 Q 140 40 160 60 L 160 100 Q 140 120 120 120 Z" fill="#fd7e14" stroke="#2c3e50" stroke-width="2"/>
+                                
+                                <!-- Sección 2 (4 metros de longitud) -->
+                                <rect x="160" y="60" width="200" height="40" fill="url(#prob2)" stroke="#2c3e50" stroke-width="2" rx="5"/>
+                                
+                                <!-- Transición 2 -->
+                                <path d="M 360 60 Q 380 60 400 40 L 400 120 Q 380 100 360 100 Z" fill="#fd7e14" stroke="#2c3e50" stroke-width="2"/>
+                                
+                                <!-- Sección 3 -->
+                                <rect x="400" y="40" width="100" height="80" fill="url(#prob3)" stroke="#2c3e50" stroke-width="2" rx="8"/>
+                                
+                                <!-- Líneas de flujo -->
+                                <line x1="30" y1="70" x2="490" y2="70" stroke="#34495e" stroke-width="2" stroke-dasharray="6,3" opacity="0.6"/>
+                                <line x1="30" y1="80" x2="490" y2="80" stroke="#34495e" stroke-width="2" stroke-dasharray="6,3" opacity="0.6"/>
+                                <line x1="30" y1="90" x2="490" y2="90" stroke="#34495e" stroke-width="2" stroke-dasharray="6,3" opacity="0.6"/>
+                                
+                                <!-- Etiquetas de presión -->
+                                <text x="70" y="25" text-anchor="middle" fill="#17a2b8" font-size="12" font-weight="bold">P₁ = ?</text>
+                                <text x="260" y="25" text-anchor="middle" fill="#dc3545" font-size="12" font-weight="bold">P₂ = ?</text>
+                                <text x="450" y="25" text-anchor="middle" fill="#28a745" font-size="12" font-weight="bold">P₃ = ?</text>
+                                
+                                <!-- Etiquetas de secciones -->
+                                <text x="70" y="85" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold">Sección 1</text>
+                                <text x="70" y="95" text-anchor="middle" fill="#ffffff" font-size="10">A₁ = 1.0 m²</text>
+                                <text x="70" y="105" text-anchor="middle" fill="#ffffff" font-size="10">v₁ = ?</text>
+                                
+                                <text x="260" y="78" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="bold">Sección 2 (4 metros)</text>
+                                <text x="260" y="88" text-anchor="middle" fill="#ffffff" font-size="9">A₂ = 0.5 m² | v₂ = ?</text>
+                                
+                                <text x="450" y="85" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold">Sección 3</text>
+                                <text x="450" y="95" text-anchor="middle" fill="#ffffff" font-size="10">A₃ = 1.0 m²</text>
+                                <text x="450" y="105" text-anchor="middle" fill="#ffffff" font-size="10">v₃ = ?</text>
+                                
+                                <!-- Medida de 4 metros -->
+                                <line x1="160" y1="135" x2="360" y2="135" stroke="#2c3e50" stroke-width="2"/>
+                                <line x1="160" y1="130" x2="160" y2="140" stroke="#2c3e50" stroke-width="2"/>
+                                <line x1="360" y1="130" x2="360" y2="140" stroke="#2c3e50" stroke-width="2"/>
+                                <text x="260" y="150" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold">4 metros</text>
+                                
+                                <!-- Flecha de flujo -->
+                                <polygon points="260,10 280,15 280,12 300,12 300,18 280,18 280,15" fill="#007bff"/>
+                                <text x="320" y="17" fill="#007bff" font-size="12" font-weight="bold">Flujo de agua</text>
+                            </svg>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 20px; font-size: 0.9rem;">
+                            <div style="background: rgba(23, 162, 184, 0.1); padding: 12px; border-radius: 8px; text-align: center; border: 2px solid #17a2b8;">
+                                <strong style="color: #17a2b8;">📊 Datos conocidos:</strong><br>
+                                • Densidad: ρ = 1000 kg/m³<br>
+                                • Caudal: Q = 2.0 m³/s<br>
+                                • Longitud sección central: 4 m
+                            </div>
+                            <div style="background: rgba(220, 53, 69, 0.1); padding: 12px; border-radius: 8px; text-align: center; border: 2px solid #dc3545;">
+                                <strong style="color: #dc3545;">🎯 A encontrar:</strong><br>
+                                • Velocidades: v₁, v₂, v₃<br>
+                                • Diferencia de presión: P₁ - P₂<br>
+                                • Interpretación física
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 1: Cálculo de Velocidades -->
+            <div class="solution-section">
+                <div class="section-header" onclick="toggleSection('velocidades')">
+                    <h3>1. Cálculo de velocidades (método matemático paso a paso)</h3>
+                    <span class="toggle-icon" id="icon-velocidades">+</span>
+                </div>
+                <div class="section-content" id="content-velocidades">
+                    <div class="content-inner">
+                        <div class="math-step">
+                            <h4>🔄 Ecuación de continuidad</h4>
+                            <p>Para flujo incompresible y estacionario:</p>
+                            <div class="equation">
+                                $$Q = A \cdot v \quad\Longrightarrow\quad v = \frac{Q}{A}$$
+                            </div>
+                        </div>
+
+                        <div class="math-step">
+                            <h4>📏 Sección 1 (ancha)</h4>
+                            <p>Datos conocidos:</p>
+                            <div class="equation">
+                                $$A_1 = 1{,}0\ \mathrm{m^2}, \quad Q = 2{,}0\ \mathrm{m^3/s}$$
+                            </div>
+                            <p>Sustituimos en $v = Q/A$:</p>
+                            <div class="equation">
+                                $$v_1 = \frac{2{,}0}{1{,}0} = 2{,}0\ \mathrm{m/s}$$
+                            </div>
+                        </div>
+
+                        <div class="math-step">
+                            <h4>🔸 Sección 2 (estrecha)</h4>
+                            <p>Datos conocidos:</p>
+                            <div class="equation">
+                                $$A_2 = 0{,}5\ \mathrm{m^2}$$
+                            </div>
+                            <p>Sustitución:</p>
+                            <div class="equation">
+                                $$v_2 = \frac{Q}{A_2} = \frac{2{,}0}{0{,}5} = 4{,}0\ \mathrm{m/s}$$
+                            </div>
+                        </div>
+
+                        <div class="math-step">
+                            <h4>📏 Sección 3 (re-expansión)</h4>
+                            <p>Datos conocidos:</p>
+                            <div class="equation">
+                                $$A_3 = 1{,}0\ \mathrm{m^2}$$
+                            </div>
+                            <p>Igual que en la sección 1:</p>
+                            <div class="equation">
+                                $$v_3 = \frac{2{,}0}{1{,}0} = 2{,}0\ \mathrm{m/s}$$
+                            </div>
+                        </div>
+
+                        <div class="result-box">
+                            <h4>✅ Resumen de Velocidades</h4>
+                            <div class="equation">
+                                $$v_1 = 2{,}0\ \mathrm{m/s}, \quad v_2 = 4{,}0\ \mathrm{m/s}, \quad v_3 = 2{,}0\ \mathrm{m/s}$$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 2: Diferencia de Presión -->
+            <div class="solution-section">
+                <div class="section-header" onclick="toggleSection('presion-diff')">
+                    <h3>2. Diferencia de presión $p_1 - p_2$ (Ecuación de Bernoulli)</h3>
+                    <span class="toggle-icon" id="icon-presion-diff">+</span>
+                </div>
+                <div class="section-content" id="content-presion-diff">
+                    <div class="content-inner">
+                        <div class="math-step">
+                            <h4>⚖️ Ecuación de Bernoulli</h4>
+                            <p>Para un conducto horizontal ($z$ constante) y flujo ideal:</p>
+                            <div class="equation">
+                                $$\frac{p_1}{\rho} + \frac{v_1^2}{2} = \frac{p_2}{\rho} + \frac{v_2^2}{2}$$
+                            </div>
+                        </div>
+
+                        <div class="math-step">
+                            <h4>🔄 Despejando la diferencia de presión</h4>
+                            <p>Reorganizando la ecuación:</p>
+                            <div class="equation">
+                                $$\frac{p_1}{\rho} - \frac{p_2}{\rho} = \frac{v_2^2}{2} - \frac{v_1^2}{2}$$
+                            </div>
+                            <p>Factorizando:</p>
+                            <div class="equation">
+                                $$p_1 - p_2 = \frac{\rho}{2}(v_2^2 - v_1^2)$$
+                            </div>
+                        </div>
+
+                        <div class="math-step">
+                            <h4>🔢 Sustitución numérica</h4>
+                            <p>Valores conocidos:</p>
+                            <div class="equation">
+                                $$\rho = 1000\ \mathrm{kg/m^3}, \quad v_1 = 2\ \mathrm{m/s}, \quad v_2 = 4\ \mathrm{m/s}$$
+                            </div>
+                            <p>Calculando $v_2^2 - v_1^2$:</p>
+                            <div class="equation">
+                                $$v_2^2 - v_1^2 = 4^2 - 2^2 = 16 - 4 = 12\ \mathrm{m^2/s^2}$$
+                            </div>
+                            <p>Sustitución final:</p>
+                            <div class="equation">
+                                $$p_1 - p_2 = \frac{1000}{2} \times 12 = 500 \times 12 = 6000\ \mathrm{Pa}$$
+                            </div>
+                        </div>
+
+                        <div class="result-box">
+                            <h4>✅ Diferencia de Presión</h4>
+                            <div class="equation">
+                                $$p_1 - p_2 = 6000\ \mathrm{Pa} = 6\ \mathrm{kPa}$$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 3: Interpretación -->
+            <div class="solution-section">
+                <div class="section-header" onclick="toggleSection('interpretacion')">
+                    <h3>3. Interpretación física del fenómeno</h3>
+                    <span class="toggle-icon" id="icon-interpretacion">+</span>
+                </div>
+                <div class="section-content" id="content-interpretacion">
+                    <div class="content-inner">
+                        <div class="interpretation">
+                            <h4>🔍 Análisis del comportamiento físico</h4>
+                            <ul>
+                                <li><strong>Conservación de masa (Continuidad):</strong> El agua no puede desaparecer ni crearse, por lo que $A \cdot v = Q$ debe mantenerse constante. Al reducirse el área a la mitad ($1 \to 0{,}5$ m²), las partículas de agua deben moverse el doble de rápido ($2 \to 4$ m/s) para mantener el mismo flujo volumétrico</li>
+                                <li><strong>Conservación de energía (Bernoulli):</strong> La energía total por unidad de volumen permanece constante. Cuando las partículas aceleran en la sección estrecha, su energía cinética ($\frac{1}{2}\rho v^2$) aumenta, por lo que su energía de presión ($p$) debe disminuir para compensar. Es como un intercambio energético: más velocidad = menos presión</li>
+                                <li><strong>Efecto Venturi:</strong> La caída de presión en la sección estrecha ($p_1 - p_2 = 6$ kPa) es el principio detrás de carburadores, atomizadores y medidores de flujo</li>
+                                <li><strong>Recuperación en la re-expansión:</strong> Al expandirse nuevamente ($A_3 = 1$ m²), las partículas desaceleran ($v_3 = 2$ m/s), recuperando la presión original ($p_3 = p_1$). La energía cinética se convierte de vuelta en energía de presión</li>
+                                <li><strong>Analogía física:</strong> Es similar a una pelota rodando por una colina: acelera al bajar (sección estrecha) y desacelera al subir (re-expansión), pero la energía total se conserva</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="applications">
+                <h3>🔧 Aplicaciones Prácticas</h3>
+                <ul>
+                    <li><strong>Medidores de Venturi:</strong> Infieren el caudal midiendo la caída de presión</li>
+                    <li><strong>Toberas y boquillas:</strong> Aceleran o frenan flujos aprovechando cambios de presión</li>
+                    <li><strong>Difusores en turbinas:</strong> Aumentan presión al reducir velocidad</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleProperty(propertyId) {
+            // Cerrar todas las propiedades primero
+            const allProperties = ['densidad', 'viscosidad', 'presion', 'velocidad'];
+            allProperties.forEach(prop => {
+                const content = document.getElementById(`content-${prop}`);
+                const icon = document.getElementById(`icon-${prop === 'presion' ? 'presion-prop' : prop === 'velocidad' ? 'velocidad-prop' : prop}`);
+                if (content && icon) {
+                    content.classList.remove('active');
+                    icon.textContent = '+';
+                }
+            });
+            
+            // Abrir solo la propiedad seleccionada
+            const content = document.getElementById(`content-${propertyId}`);
+            const icon = document.getElementById(`icon-${propertyId === 'presion' ? 'presion-prop' : propertyId === 'velocidad' ? 'velocidad-prop' : propertyId}`);
+            
+            if (content && icon) {
+                content.classList.add('active');
+                icon.textContent = '−';
+            }
+        }
+
+        function toggleBernoulli() {
+            const explanation = document.getElementById('bernoulli-explanation');
+            if (explanation.style.display === 'none') {
+                explanation.style.display = 'block';
+            } else {
+                explanation.style.display = 'none';
+            }
+        }
+
+        function toggleContinuity() {
+            const explanation = document.getElementById('continuity-explanation');
+            if (explanation.style.display === 'none') {
+                explanation.style.display = 'block';
+            } else {
+                explanation.style.display = 'none';
+            }
+        }
+
+        function toggleSection(sectionId) {
+            const content = document.getElementById(`content-${sectionId}`);
+            const icon = document.getElementById(`icon-${sectionId}`);
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.textContent = '+';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.classList.add('active');
+                icon.textContent = '−';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Auto-render MathJax when content is expanded
+        document.addEventListener('DOMContentLoaded', function() {
+            const allHeaders = document.querySelectorAll('.property-header, .section-header');
+            allHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    setTimeout(() => {
+                        if (window.MathJax) {
+                            MathJax.typesetPromise();
+                        }
+                    }, 100);
+                });
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'959b5ac863ebb861',t:'MTc1MTU5Nzg0MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
